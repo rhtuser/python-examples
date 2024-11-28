@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Guest Book</title>
+    </head>
+    <body>
+        <h1>{{ user.greeting }}, {{ user.firstname }} {{ user.middlename }} {{ user.lastname }}!</h1>
+        <p>Welcome back! You have visited us {{ user.visits }}
+            {% if user.visits | int() > 1 %}
+                times
+            {% else %}
+                time
+            {% endif %} by now!</p>
+        <p>We have the following information about you on file:</p>
+        <ul>
+            <li/> Name: {{ user.firstname }} {{ user.middlename }} {{ user.lastname }}
+            <li/> Address: {{ user.address}}, {{ user.city }}, {{ user.state }}, {{ user.country }}
+            <li/> Email: {{ user.email }}
+            <li/> Greeting: {{ user.greeting }}
+            <li/> Number of visits: {{ user.visits }}
+        </ul>
+    </body>
+</html>

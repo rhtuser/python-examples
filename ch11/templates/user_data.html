@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Guest Book</title>
+    </head>
+    <body>
+        <h1>New Account</h1>
+        <p>Please provide some additional data about you, {{ user.firstname }}!</p>
+{% if errors %}
+        <p>There were errors in your previous attempt:</p>
+        <ul>
+{% for err in errors %}
+        <li/>{{ err }}
+{% endfor %}
+        </ul>
+        <p>Please try again.</p>
+{% endif %}
+        <table>
+        <form method="post">
+            <tr><td>First name:</td><td><input type="text" name="firstname" value="{{ user.firstname }}" size="25"/></td></tr>
+            <tr><td>Middle name:</td><td><input type="text" name="middlename" value="{{ user.middlename }}" size="25"/></td></tr>
+            <tr><td>Last name:</td><td><input type="text" name="lastname" value="{{ user.lastname }}" size="25"/></td></tr>
+            <tr><td>Address</td><td><input type="text" name="address" value="{{ user.address | default('') }}" size="25"/></td></tr>
+            <tr><td>City</td><td><input type="text" name="city" value="{{ user.city | default('') }}" size="25"/></td></tr>
+            <tr><td>State</td><td><input type="text" name="state" value="{{ user.state | default('') }}" size="25"/></td></tr>
+            <tr><td>Country</td><td><input type="text" name="country" value="{{ user.country | default('') }}" size="25"/></td></tr>
+            <tr><td>Email</td><td><input type="text" name="email" value="{{ user.email | default('') }}" size="25"/></td></tr>
+            <tr><td>Greeting</td><td><input type="text" name="greeting" value="{{ user.greeting | default('') }}" size="25"/></td></tr>
+            <tr><td colspan="2"><input type="submit" value="Update!"/></td></tr>
+        </form>
+        </table>
+    </body>
+</html>
